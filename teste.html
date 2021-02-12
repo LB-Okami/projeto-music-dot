@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    .foto-container {
+      width: 40%;
+    }
+
+    .foto {
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      background-color: tomato;
+      margin-bottom: 1rem;
+    }
+
+    .foto-verde {
+      background-color: springgreen;
+      height: 420px;
+    }
+
+    .foto-azul {
+      background-color: steelblue;
+    }
+
+    .foto-amarela {
+      background-color: yellow;
+    }
+
+    .grid-container {
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 180px);
+      grid-template-areas: 
+        "verde amarela . azul"
+        "verde . . .";
+      gap: 20px 20px;
+      justify-items: stretch;
+      align-items: stretch;
+    }
+
+    .grid-container .foto {
+      width: auto;
+      min-width: 100px;
+      height: auto;
+      min-height: 100px;
+      margin-bottom: 0;
+    }
+
+    .grid-container .foto-verde {
+      /* grid-column: 3;
+      grid-row: 1 / span 2; */
+      grid-area: verde;
+    }
+
+    .grid-container .foto-azul {
+      grid-area: azul;
+    }
+
+    .grid-container .foto-amarela {
+      grid-area: amarela;
+    }
+  </style>
+</head>
+<body>
+  <h2>Flex</h2>
+  <div class="flex-container">
+    <div class="foto foto-verde"></div>
+
+    <div class="flex-container foto-container">
+      <div class="foto"></div>
+      <div class="foto"></div>
+      <div class="foto"></div>
+      <div class="foto"></div>
+    </div>
+  </div>
+
+  <h2>Grid</h2>
+  <div class="grid-container">
+    <div class="foto foto-verde"></div>
+    <div class="foto"></div>
+    <div class="foto"></div>
+    <div class="foto"></div>
+    <div class="foto"></div>
+    <div class="foto foto-azul"></div>
+    <div class="foto foto-amarela"></div>
+  </div>
+</body>
+</html>
